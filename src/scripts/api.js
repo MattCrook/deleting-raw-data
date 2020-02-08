@@ -1,12 +1,12 @@
 export default {
-    deleteRecipe (recipeId) {
-        return fetch(`http://localhost:8088/recipes/${recipeId}`, {
+    async deleteRecipe (recipeId) {
+        const response = await fetch(`http://localhost:8088/recipes/${recipeId}`, {
             method: "DELETE"
         })
-            .then(response => response.json())
+        return await response.json()
     },
-    getAllRecipes () {
-        return fetch("http://localhost:8088/recipes")
-            .then(response => response.json())
+    async getAllRecipes () {
+        const response = await fetch("http://localhost:8088/recipes")
+        return await response.json()
     }
-}
+};
